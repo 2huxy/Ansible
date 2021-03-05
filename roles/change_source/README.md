@@ -15,7 +15,7 @@ CentOS换源
 
 change_source/  
 ├── defaults  
-│   └── main.yml  
+│&emsp;└── main.yml  
 ├── files  
 ├── handlers  
 │   └── main.yml  
