@@ -9,10 +9,10 @@ Ansible/
 ├── ansible.cfg  
 ├── hosts  
 └── roles  
-    ├── change_source  
-    ├── linux_check  
-    ├── mysql_install  
-    └── nginx_install
+&emsp;&emsp;├── change_source  
+&emsp;&emsp;├── linux_check  
+&emsp;&emsp;├── mysql_install  
+&emsp;&emsp;└── nginx_install
 
 ## 作者
 -------------
