@@ -64,10 +64,7 @@ mysql_install/
 ## 依赖
 ------------
 
-> mysql  
-> mysql-devel  
-> python-devel  
-> python-pip
+无
 
 
 ## 示例剧本

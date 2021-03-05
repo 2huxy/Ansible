@@ -59,13 +59,7 @@ nginx_install/
 ## 依赖
 ------------
 
-> gcc-c++
-> pcre 
-> pcre-devel
-> zlib 
-> zlib-devel
-> openssl 
-> openssl-devel
+无
 
 ## 示例剧本
 ----------------
