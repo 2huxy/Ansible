@@ -1,38 +1,85 @@
-Role Name
+# 换源角色
 =========
 
-A brief description of the role goes here.
+nginx安装
 
-Requirements
+# 版本说明
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+>支持的版本：
+>>Ansible版本：2.9.17  
+>>CentOS：7.9
+>>nginx：1.12
 
-Role Variables
+# 文件目录
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+nginx_install/
+├── defaults
+│   └── main.yml
+├── files
+│   └── nginx-1.12.0.tar.gz
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── nginx_install
+├── README.md
+├── tasks
+│   ├── free_ports.yml
+│   ├── install.yml 
+│   └── main.yml
+├── templates
+│   └── nginx.conf.j2
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
 
-Dependencies
+# 变量
+--------------
+## 角色变量
+
+无
+
+## 剧本变量
+
+|  变量  | 内容  |
+|  ----  | ----  |
+| nginx_version  | nginx版本 |
+| nginx_install_file  | nginx安装压缩包 |
+| nginx_download_url  |   压缩包下载地址  |
+| packages  | 依赖包 | 
+| temp_nginx_path  | 临时文件路径 |
+| temp_nginx_install_path  | 临时安装路径 |
+| pre_nginx_conf  |  安装前配置文件  |
+| ngnix_path | nginx启动目录 |
+
+# 依赖
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+> gcc-c++
+> pcre 
+> pcre-devel
+> zlib 
+> zlib-devel
+> openssl 
+> openssl-devel
 
-Example Playbook
+# 示例剧本
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: nginx_install }
 
-License
+# 证书
 -------
 
-BSD
+无
 
-Author Information
+# 作者信息
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+ 
+运维菜狗-朱鑫奕

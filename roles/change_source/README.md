@@ -10,6 +10,31 @@ CentOS换源
 >>Ansible版本：2.9.17  
 >>CentOS：7 or 8  
 >>源文件：aliyun
+# 文件目录
+--------------
+
+change_source/
+├── defaults
+│   └── main.yml
+├── files
+│   └── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── README.md
+├── tasks
+│   ├── backup.yml
+│   ├── change.yml
+│   ├── find_sfile.yml
+│   └── smain.yml
+├── templates
+├── tests
+│   ├── do.yml
+│   ├── inventory
+│   └── Recovery.yml
+└── vars
+    └── main.yml
 
 # 变量
 --------------
