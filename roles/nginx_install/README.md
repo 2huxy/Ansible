@@ -1,9 +1,9 @@
-# 换源角色
-=========
+# Nginx安装角色
+-----------
 
 nginx安装
 
-# 版本说明
+## 版本说明
 ------------
 
 >支持的版本：
@@ -11,39 +11,38 @@ nginx安装
 >>CentOS：7.9
 >>nginx：1.12
 
-# 文件目录
+## 文件目录
 --------------
 
-nginx_install/
-├── defaults
-│   └── main.yml
-├── files
-│   └── nginx-1.12.0.tar.gz
-├── handlers
-│   └── main.yml
-├── meta
-│   └── main.yml
-├── nginx_install
-├── README.md
-├── tasks
-│   ├── free_ports.yml
-│   ├── install.yml 
-│   └── main.yml
-├── templates
-│   └── nginx.conf.j2
-├── tests
-│   ├── inventory
-│   └── test.yml
-└── vars
-    └── main.yml
+>nginx_install/
+>>defaults
+>>>main.yml
+>>files
+>>>nginx-1.12.0.tar.gz
+>>handlers
+>>>main.yml
+>>meta
+>>>main.yml
+>>README.md
+>>tasks
+>>>free_ports.yml
+>>>install.yml 
+>>>main.yml
+>>templates
+>>>nginx.conf.j2
+>>tests
+>>>inventory
+>>>test.yml
+>>vars
+>>>main.yml
 
-# 变量
+## 变量
 --------------
-## 角色变量
+### 角色变量
 
 无
 
-## 剧本变量
+### 剧本变量
 
 |  变量  | 内容  |
 |  ----  | ----  |
@@ -56,7 +55,7 @@ nginx_install/
 | pre_nginx_conf  |  安装前配置文件  |
 | ngnix_path | nginx启动目录 |
 
-# 依赖
+## 依赖
 ------------
 
 > gcc-c++
@@ -67,19 +66,19 @@ nginx_install/
 > openssl 
 > openssl-devel
 
-# 示例剧本
+## 示例剧本
 ----------------
 
     - hosts: servers
       roles:
          - { role: nginx_install }
 
-# 证书
+## 证书
 -------
 
 无
 
-# 作者信息
+## 作者信息
 ------------------
  
 运维菜狗-朱鑫奕
