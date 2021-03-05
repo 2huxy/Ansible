@@ -15,25 +15,25 @@ CentOS换源
 
 change_source/  
 ├── defaults  
-│&emsp;└── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── files  
 ├── handlers  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── meta  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── README.md  
 ├── tasks  
-│   ├── backup.yml  
-│   ├── change.yml  
-│   ├── find_sfile.yml  
-│   └── main.yml  
+│&emsp;&emsp;├── backup.yml  
+│&emsp;&emsp;├── change.yml  
+│&emsp;&emsp;├── find_sfile.yml  
+│&emsp;&emsp;└── main.yml  
 ├── templates  
 ├── tests  
-│   ├── do.yml  
-│   ├── inventory  
-│   └── Recovery.yml  
+│&emsp;&emsp;├── do.yml  
+│&emsp;&emsp;├── inventory  
+│&emsp;&emsp;└── Recovery.yml  
 └── vars  
-    └── main.yml  
+&emsp;&emsp;└── main.yml  
 
 
 ## 变量
