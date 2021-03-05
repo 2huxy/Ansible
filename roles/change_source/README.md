@@ -13,27 +13,28 @@ CentOS换源
 ## 文件目录
 --------------
 
->change_source/  
->>defaults  
->>>main.yml  
->>files  
->>handlers  
->>>main.yml  
->>meta  
->>>main.yml  
->>README.md  
->>tasks  
->>>backup.yml  
->>>change.yml  
->>>find_sfile.yml  
->>>smain.yml  
->>templates  
->>tests  
->>>do.yml  
->>>inventory  
->>>Recovery.yml  
->>vars  
->>>main.yml  
+change_source/  
+├── defaults  
+│   └── main.yml  
+├── files  
+├── handlers  
+│   └── main.yml  
+├── meta  
+│   └── main.yml  
+├── README.md  
+├── tasks  
+│   ├── backup.yml  
+│   ├── change.yml  
+│   ├── find_sfile.yml  
+│   └── main.yml  
+├── templates  
+├── tests  
+│   ├── do.yml  
+│   ├── inventory  
+│   └── Recovery.yml  
+└── vars  
+    └── main.yml  
+
 
 ## 变量
 --------------

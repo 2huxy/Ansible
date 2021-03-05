@@ -14,27 +14,28 @@ nginx安装
 ## 文件目录
 --------------
 
->nginx_install/
->>defaults
->>>main.yml
->>files
->>>nginx-1.12.0.tar.gz
->>handlers
->>>main.yml
->>meta
->>>main.yml
->>README.md
->>tasks
->>>free_ports.yml
->>>install.yml 
->>>main.yml
->>templates
->>>nginx.conf.j2
->>tests
->>>inventory
->>>test.yml
->>vars
->>>main.yml
+nginx_install/  
+├── defaults  
+│   └── main.yml  
+├── files  
+│   └── nginx-1.12.0.tar.gz  
+├── handlers  
+│   └── main.yml  
+├── meta  
+│   └── main.yml  
+├── README.md  
+├── tasks  
+│   ├── free_ports.yml  
+│   ├── install.yml  
+│   └── main.yml  
+├── templates  
+│   └── nginx.conf.j2  
+├── tests  
+│   ├── inventory  
+│   └── test.yml  
+└── vars  
+    └── main.yml  
+
 
 ## 变量
 --------------

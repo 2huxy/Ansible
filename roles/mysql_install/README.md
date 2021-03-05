@@ -14,28 +14,29 @@ mysql-python模块安装，便于后期ansible管理mysql
 ## 文件目录
 --------------
 
->mysql_install/
->>defaults  
->>>main.yml  
->>files  
->>>change_root_passwd.sh  
->>>mysql57-community-release-el7-9.noarch.rpm  
->>handlers  
->>>main.yml  
->>meta  
->>>main.yml  
->> README.md  
->>tasks  
->>>change_root_password.yml  
->>>install.yml  
->>>main.yml  
->>>mysql-py_install.yml  
->>templates  
->>tests  
->>>inventory  
->>>test.yml  
->>vars  
->>>main.yml  
+mysql_install/  
+├── defaults  
+│   └── main.yml  
+├── files  
+│   ├── change_root_passwd.sh  
+│   └── mysql57-community-release-el7-9.noarch.rpm  
+├── handlers  
+│   └── main.yml  
+├── meta  
+│   └── main.yml  
+├── README.md  
+├── tasks  
+│   ├── change_root_password.yml  
+│   ├── install.yml  
+│   ├── main.yml  
+│   └── mysql-py_install.yml  
+├── templates  
+├── tests  
+│   ├── inventory  
+│   └── test.yml  
+└── vars  
+    └── main.yml  
+
 
 
 ## 变量

@@ -13,26 +13,27 @@ CentOS巡检，巡检内容：CPU利用率，内存利用率，磁盘利用率�
 ## 文件目录
 --------------
 
->linux_check/  
->>defaults  
->>>main.yml  
->>files  
->>>check_resources.sh  
->>handlers  
->>>main.yml  
->>meta   
->>>main.yml  
->>README.md  
->>tasks  
->>>main.yml  
->>>sh.yml   
->>>write_in_log.yml  
->>templates    
->>tests  
->>>inventory  
->>>test.yml  
->>vars  
->>>main.yml   
+linux_check/  
+├── defaults  
+│   └── main.yml  
+├── files  
+│   └── check_resources.sh  
+├── handlers  
+│   └── main.yml  
+├── meta  
+│   └── main.yml  
+├── README.md  
+├── tasks  
+│   ├── main.yml  
+│   ├── sh.yml  
+│   └── write_in_log.yml  
+├── templates  
+├── tests  
+│   ├── inventory  
+│   └── test.yml  
+└── vars  
+    └── main.yml  
+
 
 
 ## 变量
