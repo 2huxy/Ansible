@@ -16,25 +16,25 @@ nginx安装
 
 nginx_install/  
 ├── defaults  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── files  
-│   └── nginx-1.12.0.tar.gz  
+│&emsp;&emsp;└── nginx-1.12.0.tar.gz  
 ├── handlers  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── meta  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── README.md  
 ├── tasks  
-│   ├── free_ports.yml  
-│   ├── install.yml  
-│   └── main.yml  
+│&emsp;&emsp;├── free_ports.yml  
+│&emsp;&emsp;├── install.yml  
+│&emsp;&emsp;└── main.yml  
 ├── templates  
-│   └── nginx.conf.j2  
+│&emsp;&emsp;└── nginx.conf.j2  
 ├── tests  
-│   ├── inventory  
-│   └── test.yml  
+│&emsp;&emsp;├── inventory  
+│&emsp;&emsp;└── test.yml  
 └── vars  
-    └── main.yml  
+&emsp;&emsp;└── main.yml  
 
 
 ## 变量

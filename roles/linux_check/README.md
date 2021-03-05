@@ -15,24 +15,24 @@ CentOS巡检，巡检内容：CPU利用率，内存利用率，磁盘利用率�
 
 linux_check/  
 ├── defaults  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── files  
-│   └── check_resources.sh  
+│&emsp;&emsp;└── check_resources.sh  
 ├── handlers  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── meta  
-│   └── main.yml  
+│&emsp;&emsp;└── main.yml  
 ├── README.md  
 ├── tasks  
-│   ├── main.yml  
-│   ├── sh.yml  
-│   └── write_in_log.yml  
+│&emsp;&emsp;├── main.yml  
+│&emsp;&emsp;├── sh.yml  
+│&emsp;&emsp;└── write_in_log.yml  
 ├── templates  
 ├── tests  
-│   ├── inventory  
-│   └── test.yml  
+│&emsp;&emsp;├── inventory  
+│&emsp;&emsp;└── test.yml  
 └── vars  
-    └── main.yml  
+&emsp;&emsp;└── main.yml  
 
 
 
