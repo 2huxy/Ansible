@@ -1,0 +1,5 @@
+---
+- hosts: CentOS
+  remote_user: root
+  roles:
+    - change_source

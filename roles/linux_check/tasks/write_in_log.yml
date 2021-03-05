@@ -1,0 +1,22 @@
+#巡检结果写入日志剧本
+#任务流程：
+#   1、创建日志文件
+#   2、写入日志文件
+---
+  #创建日志文件目录任务
+  - name: create logfolder
+    file:
+      path: /etc/log
+      state: directory
+
+  #以时间和日期为日志名，创建日志文件
+  - name: create logfile
+    file:
+      path: /etc/log/checkfile-{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.log
+      state: touch
+      
+  #将巡检结果写入日志
+  - name: write result in logfile
+    copy:
+      content: "{{ check_result.stdout }}"
+      dest: /etc/log/checkfile-{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.log

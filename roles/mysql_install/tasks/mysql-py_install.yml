@@ -1,0 +1,21 @@
+#远程主机安装mysql-python模块剧本
+#任务流程：
+#   1、安装epel扩展源
+#   2、安装依赖包
+#   3、pip安装mysql-python模块
+---
+  #安装epel扩展源任务
+  - name: install Extended source
+    yum: 
+      name: epel-release
+      state: present
+
+  #安装依赖包  
+  - name: install mysql-python dependency packages
+    yum:
+      name: "{{dependency_packages}}"
+      state: present
+  #安装mysql模块
+  - name: install mysql-python module
+    pip:
+      name: mysql-python

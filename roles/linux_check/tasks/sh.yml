@@ -1,0 +1,15 @@
+#巡检剧本
+#任务流程：
+#   1、跑脚本
+#   2、取到脚本结果
+---
+  #执行巡检脚本
+  - name: run sh
+    script: check_resources.sh
+    register: check_result
+    
+  #ansible中输出执行结果
+  - name: debug
+    debug:
+      msg: "{{ check_result.stdout_lines}}"
+  

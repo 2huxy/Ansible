@@ -1,0 +1,30 @@
+---
+#nginx版本
+nginx_version: 1.12.0
+#nginx安装压缩包
+nginx_install_file: nginx-{{nginx_version}}.tar.gz
+#压缩包下载地址
+nginx_download_url: https://nginx.org/download/{{nginx_install_file}}
+
+
+#依赖
+packages: 
+  - gcc-c++
+  - pcre 
+  - pcre-devel
+  - zlib 
+  - zlib-devel
+  - openssl 
+  - openssl-devel
+
+#临时文件路径
+temp_nginx_path: /etc/temp/nginx
+#临时安装路径
+temp_nginx_install_path: /etc/temp/nginx/nginx-{{nginx_version}}
+#安装前配置文件
+pre_nginx_conf: /etc/temp/nginx/nginx-{{nginx_version}}/conf/nginx.conf
+#nginx启动目录
+nginx_path: /usr/local/nginx/sbin/nginx
+
+# defaults file for nginx_install
+

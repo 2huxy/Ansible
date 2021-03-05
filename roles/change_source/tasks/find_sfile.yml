@@ -1,0 +1,20 @@
+#寻找源文件路径剧本
+#   1、匹配为含有关键字“Base.repo”的文件
+#   2、使用find命令输出他的位置
+#为什么这么做：
+#    在Centos7中源文件名称为：CentOS-Base.repo
+#    而在CentOS8中源文件名称为CentOS-Linux-BaseOS.repo
+---
+  #寻找源文件路径任务
+  - name: find the source file path
+    find:
+      paths: "{{ sfile_path }}"
+      patterns: "*Base*.repo"
+    register: resource_path
+    
+  #寻找源文件路径任务状态输出  
+  - name: file state
+    debug:
+      msg:
+      - " source file was found "
+      - " source file is local at #{{sfile}}# "

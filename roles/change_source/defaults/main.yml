@@ -1,0 +1,16 @@
+---
+# defaults file for change_source
+
+
+#剧本定义变量
+
+#关联文件find_sfile.yml 源文件所在路径
+sfile: "{{resource_path.files[0].path}}" 
+#备份源文件路径
+sfile_bk: /etc/yum.repos.d/sourcefile.repo.backup 
+#源文件所在目录
+sfile_path: /etc/yum.repos.d
+#源文件下载地址
+sfile_url : https://mirrors.aliyun.com/repo/Centos-{{ansible_distribution_major_version}}.repo 
+#源文件下载后存放路径
+new_sfile: /etc/tmp/Source_file.repo

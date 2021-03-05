@@ -1,0 +1,8 @@
+---
+- hosts: CentOS
+  remote_user: root
+  roles:
+    - mysql_install
+  vars:
+    #一键部署，设置登录root密码
+    mysql_passwd: "123456"

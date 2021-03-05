@@ -1,0 +1,23 @@
+---
+  #备份恢复剧本，在角色中不自动执行，如需恢复备份则需要手动执行此剧本
+  - hosts: CentOS
+    remote_user: root
+    tasks:
+    #引入找到源文件路径任务
+    - include_tasks: find_source_file
+    #备份文件恢复任务
+    - name: recovery source 
+      shell: mv {{sflie.bk}} {{sfile_url}} 
+    #清除缓存&创建缓存
+    - name: update_cache
+      yum:
+        update_cache:
+    #升级软件包
+    - name: upgrade
+      yum:
+        name: "*"
+        state: latest
+    #备份恢复
+    - name: recovery state
+      debug:
+        msg: " recovery successful "

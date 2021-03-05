@@ -1,0 +1,39 @@
+#换源剧本
+#任务流程：
+#   1、下载新的源文件
+#   2、替换旧的源文件
+#   3、更新源文件内容
+---
+  #创建临时文件夹任务
+  - name: Create temp folder
+    file:
+      path: /etc/tmp
+      state: directory
+
+  #下载源文件任务
+  - name: Download sourcefile
+    get_url: 
+      url: "{{ sfile_url }}"
+      dest: "{{ new_sfile }}"
+
+  #替换源文件任务
+  - name: Set sourcefile
+    shell: cp {{new_sfile}} {{sfile}}
+
+  #清除缓存&创建缓存任务
+  - name: update_cache
+    yum:
+      update_cache: 
+
+  #升级安装包任务
+  - name: upgrade
+    yum:
+      name: "*"
+      state: latest
+      
+  #替换源情况输出任务
+  - name: Report of change the source
+    debug:
+      msg: 
+      - "The source changed"
+      - "New source from #{{sfile_url}}#"

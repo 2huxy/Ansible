@@ -1,0 +1,25 @@
+---
+# defaults file for mysql_install
+
+#剧本变量
+
+#mysql临时文件夹
+mysql_temp_path: "/etc/tmp/mysql"
+#rpm包名称
+rpm_package_name: "mysql57-community-release-el7-9.noarch.rpm"
+#rpm包位置
+rpm_package_location: "{{mysql_temp_path}}/{{rpm_package_name}}"
+#找到临时文件的命令
+find_temp_passwd_code: "grep 'temporary password' /var/log/mysqld.log"
+#更换root密码脚本
+change_passwd_sh: "{{mysql_temp_path}}/change_root_passwd.sh"
+#临时密码，取值为找到临时文件命令输出切片
+temp_password: "{{results.stdout[-12:]}}"
+#新密码，在主任务do.yml中定义
+new_pass: "{{mysql_passwd}}"
+#依赖包
+dependency_packages:
+  - mysql
+  - mysql-devel
+  - python-devel
+  - python-pip

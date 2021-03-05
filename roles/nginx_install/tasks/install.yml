@@ -1,0 +1,36 @@
+---
+  #安装依赖包任务
+  - name: install dependency packages
+    yum:
+      name: "{{ packages }}"
+      state: present
+
+  #创建临时文件夹任务
+  - name: create nginx folder
+    file:
+      path: "{{ temp_nginx_path }}"
+      state: directory
+
+  #解压缩安装包文件任务
+  - name: unzip nginx install package 
+    unarchive: 
+      src: "{{ nginx_install_file }}"
+      dest: "{{ temp_nginx_path }}"
+
+  #在安装之前配置nginx，拷贝配置文件模板任务
+  - name: configure nginx
+    template:
+      src: nginx.conf.j2
+      dest: "{{pre_nginx_conf}}"
+
+  #执行配置nginx文件任务
+  - name: configure nginx
+    shell: ./configure chdir="{{temp_nginx_install_path}}"
+
+  #源码安装nginx任务
+  - name: make install
+    shell: make & make install chdir="{{temp_nginx_install_path}}"
+    
+  #启动nginx任务
+  - name: start the nginx
+    shell: "{{nginx_path}}"

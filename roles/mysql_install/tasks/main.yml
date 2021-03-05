@@ -1,0 +1,8 @@
+---
+# tasks file for mysql_install
+
+#剧本执行顺序
+
+- include: install.yml
+- include: mysql-py_install.yml
+- include: change_root_password.yml

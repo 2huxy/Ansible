@@ -1,0 +1,13 @@
+#源文件备份剧本
+#任务流程：
+#   1、复制源文件到至备份位置
+#   2、输出备份结果
+---
+  #备份源文件任务
+  - name: Backup the source file
+    shell: cp {{sfile}} {{sfile_bk}}
+    
+  #备份源文件任务完成情况输出
+  - name: Backup state
+    debug:
+      msg: "File is backed up to #{{sfile_bk}}# "

@@ -1,0 +1,5 @@
+---
+# tasks file for linux-check
+#剧本执行顺序
+- include: sh.yml
+- include: write_in_log.yml

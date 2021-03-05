@@ -1,0 +1,6 @@
+---
+- hosts: CentOS
+  remote_user: root
+  gather_facts: yes
+  roles:
+    - nginx_install

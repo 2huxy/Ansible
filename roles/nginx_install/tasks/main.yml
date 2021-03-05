@@ -1,0 +1,8 @@
+---
+# tasks file for nginx_install
+
+# 任务执行顺序
+
+- include: install.yml
+- include: free_ports.yml
+

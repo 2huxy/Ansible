@@ -1,0 +1,21 @@
+---
+  #开放80端口任务
+  - name: firewalld free http port
+    firewalld:
+      port: 80/tcp
+      permanent: yes
+      state: enabled
+
+  #开放443端口任务
+  - name: firewalld free https port
+    firewalld:
+      port: 443/tcp
+      permanent: yes
+      state: enabled
+      
+  #更改完防火墙配置，重启防火墙任务
+  - name: restart firewall
+    service:
+      name: firewalld
+      state: restarted
+  

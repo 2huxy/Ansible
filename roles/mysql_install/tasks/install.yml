@@ -1,0 +1,33 @@
+#安装mysql剧本
+#任务流程：
+#   1、安装rpm包
+#   2、安装服务
+#   3、启动服务
+---
+  #创建临时文件夹任务
+  - name: create directory
+    file:
+      path: "{{mysql_temp_path}}"
+      state: directory
+  
+  #复制rpm安装包任务
+  - name: copy rpm package
+    copy: 
+      src: "{{rpm_package_name}}"
+      dest: "{{mysql_temp_path}}"
+  
+  #安装本地rpm安装包
+  - name: install rpm 
+    yum: 
+      name: "{{rpm_package_location}}"
+      state: present
+  #安装mysql-server
+  - name: install mysql server
+    yum:
+      name: mysql-server
+      state: present
+  #启动mysql
+  - name: start mysql
+    service:
+      name: mysqld
+      state: started
