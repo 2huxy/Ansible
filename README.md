@@ -11,7 +11,8 @@ Ansible/
 └── roles  
 &emsp;&emsp;├── change_source  
 &emsp;&emsp;├── linux_check  
-&emsp;&emsp;├── mysql_install  
+&emsp;&emsp;├── mysql_install
+&emsp;&emsp;├── mysql_msconfig  
 &emsp;&emsp;└── nginx_install
 
 ## 作者
