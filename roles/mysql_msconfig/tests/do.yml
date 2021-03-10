@@ -1,0 +1,17 @@
+---
+- hosts: CentOS
+  remote_user: root
+  roles:
+    - mysql_msconfig
+  vars:
+    master: {
+      ip: 172.16.111.91,
+      user: root,
+      pass: 123456
+      }
+      
+    slave: {
+      ip: 172.16.111.92,
+      user: slave_sync,
+      pass: 123456
+      } 

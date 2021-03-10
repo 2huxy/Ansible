@@ -1,69 +1,38 @@
-# CentOS巡检角色
+Role Name
+=========
+
+A brief description of the role goes here.
+
+Requirements
 ------------
 
-CentOS巡检，巡检内容：CPU利用率，内存利用率，磁盘利用率，并把结果写入日志
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-## 版本说明
-------------
-
->支持的版本：
->>Ansible版本：2.9.17  
->>CentOS：7 or 8  
-
-## 文件目录
+Role Variables
 --------------
 
-linux_check/  
-├── defaults  
-│&emsp;&emsp;└── main.yml  
-├── files  
-│&emsp;&emsp;└── check_resources.sh  
-├── handlers  
-│&emsp;&emsp;└── main.yml  
-├── meta  
-│&emsp;&emsp;└── main.yml  
-├── README.md  
-├── tasks  
-│&emsp;&emsp;├── main.yml  
-│&emsp;&emsp;├── sh.yml  
-│&emsp;&emsp;└── write_in_log.yml  
-├── templates  
-├── tests  
-│&emsp;&emsp;├── inventory  
-│&emsp;&emsp;└── test.yml  
-└── vars  
-&emsp;&emsp;└── main.yml  
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-
-
-## 变量
---------------
-### 角色变量
-
-无
-
-### 剧本变量
-
-无
-
-## 依赖
+Dependencies
 ------------
 
-无
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-## 示例剧本
+Example Playbook
 ----------------
+
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: linux_check }
+         - { role: username.rolename, x: 42 }
 
-## 证书
+License
 -------
 
-无
+BSD
 
-# 作者信息
+Author Information
 ------------------
- 
-运维菜狗-朱鑫奕
+
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).

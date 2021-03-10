@@ -13,4 +13,4 @@ sfile_path: /etc/yum.repos.d
 #源文件下载地址
 sfile_url : https://mirrors.aliyun.com/repo/Centos-{{ansible_distribution_major_version}}.repo 
 #源文件下载后存放路径
-new_sfile: /etc/tmp/Source_file.repo
+new_sfile: /etc/temp/Source_file.repo

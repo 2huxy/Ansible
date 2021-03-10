@@ -1,0 +1,4 @@
+---
+# defaults file for mysql_msconfig
+master_file: "{{p_result.stdout_lines[1][:16]}}"
+master_positon: "{{p_result.stdout_lines[1][17:-3]}}"

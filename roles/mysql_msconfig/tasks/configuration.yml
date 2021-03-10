@@ -1,0 +1,102 @@
+#配置mysql主从模式剧本
+---
+  #配置主机配置文件任务
+  - name: configure master and slave my.cnf | master and slave
+    lineinfile: 
+      path: /etc/my.cnf
+      insertafter: '^\[mysqld\]'
+      line: "{{ item }}"
+    with_items:
+      - "log-bin=mysql-bin"
+      - "server-id={{ ansible_default_ipv4.address[-2:] }}"
+  
+  #重启mysql任务
+  - name: restart mysql | master and slave
+    service:
+      name: mysqld
+      state: restarted
+
+  #主机创建同步账号，并授权
+  - name: create master sync user | master
+    mysql_user:
+      login_host: "localhost"
+      login_user: "{{master.user}}"
+      login_password: "{{master.pass}}"
+      login_port: "{{master.port}}"
+      name: "{{slave.sync_name}}"
+      password: "{{slave.sync_pass}}"
+      host: "{{ slave.ip }}"
+      priv: "*.*:all"
+      state: present
+    when: ansible_default_ipv4.address == master.ip
+  
+  #############
+  #取得主机位置#
+  #############
+
+  #为得到主机位置任务而创建临时文件夹任务
+  - name: create temp directory | master
+    file:
+      path: /etc/tmp/mysql
+      state: directory
+    when: ansible_default_ipv4.address == master.ip  
+    tags: ms
+
+  #传输得到主机的位置脚本任务
+  - name: get postion number | master
+    copy:
+      src: get_postion.sh
+      dest: /etc/tmp/mysql/get_postion.sh
+    when: ansible_default_ipv4.address == master.ip
+    tags: ms
+
+  #传入用户名至脚本任务
+  - name: Send username | master
+    lineinfile:
+      path: /etc/tmp/mysql/get_postion.sh
+      regexp: '^USERNAME='
+      line: "USERNAME={{ master.user}}"
+    when: ansible_default_ipv4.address == master.ip
+    tags: ms
+
+  #传入密码用户名至脚本任务
+  - name: Send password | master
+    lineinfile:
+      path: /etc/tmp/mysql/get_postion.sh
+      regexp: '^PASSWD='
+      line: "PASSWD={{ master.pass}}"
+    when: ansible_default_ipv4.address == master.ip
+    tags: ms
+
+  #执行取得位置脚本任务
+  - name: Run the shell | master
+    shell: "sh /etc/tmp/mysql/get_postion.sh"
+    register: p_tmp_result
+    when: ansible_default_ipv4.address == master.ip
+    tags: ms
+
+  - set_fact: p_result = {{p_tmp_result}} 
+    tags: 
+    
+  - debug:
+      msg: "{{p_result}}"
+    tags: ms
+    
+  #############
+  #从机关联主机#
+  #############
+  
+  - name:  write the shell file | slave
+    copy: 
+      content: |
+        #!/bin/bash
+        mysql -u${{slave.user}}-p{{slave.pass}} --connect-expired-password <<EOF
+        MASTER_HOST= {{master.ip}};
+        MASTER_USER={{master.user}};
+        MASTER_PASSWORD={{ master.pass}};
+        MASTER_LOG_FILE={{ master_file}};
+        ASTER_LOG_POS={{ master_positon }};
+        EOF 
+      dest: /etc/tmp/mysql/ms_connection.sh
+    when: ansible_default_ipv4.address == slave.ip
+    tags: ms  

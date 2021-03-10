@@ -1,79 +1,38 @@
-# Nginx安装角色
------------
+Role Name
+=========
 
-nginx安装
+A brief description of the role goes here.
 
-## 版本说明
+Requirements
 ------------
 
->支持的版本：
->>Ansible版本：2.9.17  
->>CentOS：7.9
->>nginx：1.12
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-## 文件目录
+Role Variables
 --------------
 
-nginx_install/  
-├── defaults  
-│&emsp;&emsp;└── main.yml  
-├── files  
-│&emsp;&emsp;└── nginx-1.12.0.tar.gz  
-├── handlers  
-│&emsp;&emsp;└── main.yml  
-├── meta  
-│&emsp;&emsp;└── main.yml  
-├── README.md  
-├── tasks  
-│&emsp;&emsp;├── free_ports.yml  
-│&emsp;&emsp;├── install.yml  
-│&emsp;&emsp;└── main.yml  
-├── templates  
-│&emsp;&emsp;└── nginx.conf.j2  
-├── tests  
-│&emsp;&emsp;├── inventory  
-│&emsp;&emsp;└── test.yml  
-└── vars  
-&emsp;&emsp;└── main.yml  
+A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-
-## 变量
---------------
-### 角色变量
-
-无
-
-### 剧本变量
-
-|  变量  | 内容  |
-|  ----  | ----  |
-| nginx_version  | nginx版本 |
-| nginx_install_file  | nginx安装压缩包 |
-| nginx_download_url  |   压缩包下载地址  |
-| packages  | 依赖包 | 
-| temp_nginx_path  | 临时文件路径 |
-| temp_nginx_install_path  | 临时安装路径 |
-| pre_nginx_conf  |  安装前配置文件  |
-| ngnix_path | nginx启动目录 |
-
-## 依赖
+Dependencies
 ------------
 
-无
+A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-## 示例剧本
+Example Playbook
 ----------------
+
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: nginx_install }
+         - { role: username.rolename, x: 42 }
 
-## 证书
+License
 -------
 
-无
+BSD
 
-## 作者信息
+Author Information
 ------------------
- 
-运维菜狗-朱鑫奕
+
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).
